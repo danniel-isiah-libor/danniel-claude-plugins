@@ -1,0 +1,9 @@
+{
+  "name": "claude-sdlc-team",
+  "description": "An agentic software-development team running a full SDLC: requirements, design, implementation, testing, code review, security, release, and docs. Stack-agnostic agents, opinionated skills, gated pipeline, auto-merge to development, sprint close → staging for UAT with a separate production release to main, optional per-project Jira-Scrum Notion sync with per-project hub pages, sprint planning, and a scrum-master skill. Every stage promotion goes through a PR/MR, deleting merged non-protected branches. A Playwright end-to-end testing layer records a per-feature review video — with a visible mouse cursor, never screenshots — that gates the merge to development.",
+  "version": "1.9.0",
+  "author": {
+    "name": "Danniel Libor"
+  },
+  "keywords": ["sdlc", "agents", "workflow", "code-review", "devops", "notion", "scrum"]
+}

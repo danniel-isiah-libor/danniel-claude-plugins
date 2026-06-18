@@ -1,0 +1,21 @@
+{
+  "name": "danniel-claude-plugins",
+  "description": "Danniel Libor's collection of Claude Code plugins.",
+  "owner": {
+    "name": "Danniel Libor"
+  },
+  "plugins": [
+    {
+      "name": "claude-dream-team",
+      "source": "./plugins/claude-dream-team",
+      "version": "0.1.0",
+      "description": "A summonable dream team of senior expert agents — a DevOps engineer (Docker, industry-standard CI/CD with mandatory manual-approval gates and semver tags/releases for UAT & prod, GCP infra), a fullstack developer (SOLID/clean code, security-first, cross-platform UI/UX, database design), a QA engineer (unit, Playwright E2E, VAPT, code review), and a technical writer (user guides, how-to/feature docs, FAQs, release notes for clients/stakeholders). Includes focused skills (project-adaptation, gcp-devops, senior-development, qa-testing, git-conventions, documentation) and a /dream-team-review command that routes QA findings to the dev/devops agents and re-verifies. Stack-agnostic; composes with each project's CLAUDE.md, skills, and agents."
+    },
+    {
+      "name": "claude-sdlc-team",
+      "source": "./plugins/claude-sdlc-team",
+      "version": "1.9.0",
+      "description": "Agentic SDLC team (requirements → design → implementation → testing → review → security → release → docs) with per-feature auto-merge to development, sprint close promoting to staging for UAT, a separate production release to main with semantic versioning + tagging, CI/CD pipeline scan-and-fix, and optional per-project Jira-Scrum Notion sync — per-project hub pages, backlog, sprint planning (Definition of Ready), and a scrum-master skill. All stage promotions are PR/MR-based with non-protected branch cleanup. A Playwright E2E layer records a per-feature review video — with a visible mouse cursor, never screenshots — that gates the merge to development."
+    }
+  ]
+}
