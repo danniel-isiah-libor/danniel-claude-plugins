@@ -19,6 +19,7 @@ description: >-
   assistant: "I'll bring in the fullstack-developer agent to implement it following the repo conventions."
   <commentary>Cross-stack implementation that must respect existing patterns.</commentary>
   </example>
+model: opus
 color: green
 ---
 

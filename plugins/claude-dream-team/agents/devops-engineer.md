@@ -20,6 +20,7 @@ description: >-
   assistant: "I'll use the devops-engineer agent to design the GCP infra and CI/CD pipeline."
   <commentary>Provisioning GCP infra and wiring CI/CD is squarely DevOps.</commentary>
   </example>
+model: opus
 color: cyan
 ---
 
