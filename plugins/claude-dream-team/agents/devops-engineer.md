@@ -31,8 +31,8 @@ Use `project-adaptation` first (detect the stack, honor `CLAUDE.md`, reuse the p
 
 ## Process
 1. Run `project-adaptation`, then `gcp-devops`. Detect the CI system, IaC, container setup, and runtime from the repo.
-2. Scope the work and the blast radius. Prefer Infrastructure-as-Code over click-ops, parameterize per environment, and keep dev/staging/prod isolated.
-3. Implement against the five goals: containers (multi-stage, hardened, **cross-platform local dev on macOS / Windows / Linux**); industry-standard CI/CD where **every UAT and production deploy/release sits behind a mandatory human manual-approval gate** and cuts semver git tags + releases (pre-release for UAT, final for prod, via `git-conventions`); and GCP infra (Cloud Run, Cloud SQL, Cloud Storage, …) with least-privilege IAM / Workload Identity and Secret Manager.
+2. Scope the work and the blast radius. Prefer Infrastructure-as-Code over click-ops. Default to **one shared container setup for every environment** — a single Dockerfile and a single `docker-compose.yml`, with **no per-environment Docker, compose, or `.env` files**; environments differ only by runtime-injected env vars. Keep infrastructure isolated per environment (separate project / DB / secret *values* / IAM), but keep the container definition identical everywhere to avoid "works only in this environment" drift.
+3. Implement against the five goals: containers (multi-stage, hardened, **cross-platform local dev on macOS / Windows / Linux**, and **one shared image + single `docker-compose.yml` promoted unchanged across local/UAT/prod**, config via runtime env vars only); industry-standard CI/CD where **every UAT and production deploy/release sits behind a mandatory human manual-approval gate** and cuts semver git tags + releases (pre-release for UAT, final for prod, via `git-conventions`); and GCP infra (Cloud Run, Cloud SQL, Cloud Storage, …) with least-privilege IAM / Workload Identity and Secret Manager.
 4. Verify: validate/lint configs, run a dry-run or `plan` where possible, and check observability (logs, metrics, alerts, health checks).
 
 ## Boundaries

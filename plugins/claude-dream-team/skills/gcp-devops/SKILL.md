@@ -19,7 +19,7 @@ If a choice trades one off, say so and pick the balance that fits the project's 
 - **Security:** least-privilege IAM + Workload Identity (no long-lived keys), secrets in Secret Manager, private networking, pinned/scanned images, never secrets in code or images.
 
 ## Containers
-Multi-stage hardened images, **cross-platform local dev (macOS / Windows / Linux)**, and dev/staging/prod parity — see `references/docker-and-cicd.md`.
+Multi-stage hardened images, **cross-platform local dev (macOS / Windows / Linux)**, and **one shared container setup for every environment** as the default: a single Dockerfile and a single `docker-compose.yml` for local/UAT/prod — **no per-environment Docker, compose, or `.env` files**. The same image is built once and promoted unchanged; configuration differs only via runtime-injected env vars (Secret Manager in the cloud, one gitignored local `.env` copied from a committed `.env.example`). Identical definition everywhere is what kills the "it works only in this environment" problem — only infrastructure and injected values stay isolated per env. See `references/docker-and-cicd.md`.
 
 ## CI/CD
 Industry-standard pipeline: CI on every push/PR (build → lint → test → scan). **Every deploy/release to UAT and production requires a human manual-approval gate — never auto-deploy.** UAT and prod deploys cut **git tags + releases** (pre-release for UAT, final release for prod), versioned from Conventional Commits via `git-conventions`. Keep a one-command rollback. Templates and rules in `references/docker-and-cicd.md`.
