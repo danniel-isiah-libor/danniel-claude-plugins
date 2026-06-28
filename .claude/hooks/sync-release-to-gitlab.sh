@@ -15,9 +15,11 @@
 #   2. Finds the latest GitHub release (the one just created).
 #   3. If GitLab already has that release tag -> nothing to do (idempotent).
 #   4. Clones GitLab into a temp dir, rsyncs this repo's content over it
-#      (excluding .git and .claude), then re-applies GitLab branding
-#      (marketplace name + install URLs). The .claude exclusion means this hook
-#      is never copied to GitLab, so no sync loop is possible.
+#      (excluding .git and THIS hook script — the .claude tooling itself is
+#      mirrored), re-applies GitLab branding (marketplace name + install URLs),
+#      and strips the hook's own registration from the mirrored
+#      .claude/settings.json. The hook script is never copied and its
+#      registration is removed, so no sync loop is possible.
 #   5. Commits, pushes main, creates+pushes the same tag, and runs
 #      `glab release create` with the GitHub release's name + notes (rebranded).
 #
@@ -107,8 +109,56 @@ git clone --quiet "$GITLAB_GIT_REMOTE" "$TMP/gitlab" \
   || { log "ERROR: git clone of GitLab failed."; exit 1; }
 GL="$TMP/gitlab"
 
-# --- mirror content (drop VCS + Claude tooling) ---
-rsync -a --delete --exclude='.git/' --exclude='.claude/' "$SRC"/ "$GL"/
+# --- mirror content (drop VCS + this hook script, but keep the .claude tooling) ---
+# The .claude tooling (enabledPlugins, settings, etc.) IS mirrored; only this
+# hook script is excluded so it is never copied to GitLab. Its registration is
+# stripped from the mirrored settings.json below, so no sync loop is possible.
+HOOK_REL=".claude/hooks/sync-release-to-gitlab.sh"
+rsync -a --delete --exclude='.git/' --exclude="$HOOK_REL" "$SRC"/ "$GL"/
+
+# --- strip the release-sync hook's own registration from the mirrored settings ---
+# GitLab carries .claude/settings.json (enabledPlugins, etc.) but must NOT
+# register this GitHub->GitLab hook: the script isn't mirrored, so a leftover
+# registration would point at a missing file and risk a sync loop. Drop any
+# PostToolUse command that references this hook and prune emptied structures.
+GL_SETTINGS="$GL/.claude/settings.json"
+if [ -f "$GL_SETTINGS" ]; then
+  python3 - "$GL_SETTINGS" <<'PY'
+import json, sys
+p = sys.argv[1]
+try:
+    with open(p, encoding='utf-8') as fh:
+        data = json.load(fh)
+except Exception:
+    sys.exit(0)
+hooks = data.get('hooks')
+if isinstance(hooks, dict):
+    for event in list(hooks):
+        entries = hooks[event]
+        if not isinstance(entries, list):
+            continue
+        kept = []
+        for entry in entries:
+            inner = entry.get('hooks', []) if isinstance(entry, dict) else []
+            inner_kept = [h for h in inner
+                          if 'sync-release-to-gitlab.sh' not in str(h.get('command', ''))]
+            if inner_kept:
+                entry['hooks'] = inner_kept
+                kept.append(entry)
+            elif not isinstance(entry, dict):
+                kept.append(entry)
+        if kept:
+            hooks[event] = kept
+        else:
+            del hooks[event]
+    if not hooks:
+        del data['hooks']
+    with open(p, 'w', encoding='utf-8') as fh:
+        json.dump(data, fh, indent=2)
+        fh.write('\n')
+    print("  stripped release-sync hook from .claude/settings.json", file=sys.stderr)
+PY
+fi
 
 # --- re-apply GitLab branding across all tracked text files ---
 python3 - "$GL" "$GH_INSTALL" "$GL_INSTALL" "$GH_NAME" "$GL_NAME" <<'PY'
