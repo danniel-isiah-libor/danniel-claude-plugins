@@ -32,6 +32,7 @@ Skills are token-optimized via *progressive disclosure*: only their short descri
 | `qa-testing` | qa-engineer | Unit coverage, Playwright E2E, VAPT/security testing, code review + fix routing |
 | `git-conventions` | dev & devops | Conventional Commits 1.0.0 + Conventional Branch 1.0.0, and semver derivation for tags & releases |
 | `documentation` | technical-writer | Audience-first docs — user guides, how-to/getting-started, feature docs, FAQs, release notes (Diátaxis types, with outlines) |
+| `obsidian-conventions` | technical-writer | Obsidian conventions + the official Obsidian style guide, Obsidian-flavored Markdown (wikilinks/embeds/callouts/properties), and PARA vault organization — used when docs live in an Obsidian vault |
 
 ### Commands
 
