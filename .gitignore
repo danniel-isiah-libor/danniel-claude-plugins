@@ -1,2 +1,5 @@
 .DS_Store
 *.log
+
+# subagent-driven-development scratch (progress ledger)
+.superpowers/
