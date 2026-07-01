@@ -1,6 +1,6 @@
 # Vault organization
 
-How to structure an Obsidian vault. Obsidian is deliberately unopinionated, so these are the conventions most experienced users converge on. Always check the existing vault first (`project-adaptation`) and follow its conventions if it already has them.
+How to structure an Obsidian vault. Obsidian is deliberately unopinionated, so these are the conventions most experienced users converge on. Always survey the existing vault first (see `maintenance-workflows.md` → workflow 1) and follow its conventions if it already has them.
 
 ## Principles
 
@@ -122,7 +122,7 @@ restructure — the vault's own conventions win over these defaults:
   `[[links]]`, notes missing frontmatter, and `_inbox` backlog before proposing
   changes.
 - **Least-disruptive change.** Prefer adding links and MOCs over moving files;
-  every move risks link breakage (see below and `maintenance-workflows.md`).
+  every move risks link breakage (see `maintenance-workflows.md`).
 - **Confirm destructive steps.** Merges, deletes, and bulk moves are proposed
   with counts and confirmed before running.
 
