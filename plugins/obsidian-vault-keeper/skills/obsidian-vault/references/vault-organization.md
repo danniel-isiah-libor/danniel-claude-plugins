@@ -81,6 +81,11 @@ SORT file.mtime DESC
 
 The `WHERE file.name != this.file.name` clause keeps the MOC from listing itself. As notes are added to the folder, the index fills in automatically.
 
+For a **new** MOC or dashboard, prefer **Bases** (Obsidian core, no plugin) over
+Dataview and author the `.base` file with the official `obsidian:obsidian-bases`
+skill. Keep Dataview where a vault already uses it. See
+`queries-and-templates.md` for when to reach for each.
+
 ## Naming conventions
 
 - Pick one convention per note type and keep it: `Title Case` for concept notes, `YYYY-MM-DD` for dailies.

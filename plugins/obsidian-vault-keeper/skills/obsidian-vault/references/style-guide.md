@@ -65,7 +65,7 @@ Conventions for writing Obsidian documentation and notes, from the official Obsi
 | Warning | `> [!warning]+` | Cautions preventing data loss or errors | Never collapse |
 | Example | `> [!example]-` | Tangential / supplementary detail | Collapsed |
 
-These are authoring recommendations, not built-in behavior: a bare `> [!tip]` is open by default — the fold state comes from the `-` (collapsed) / `+` (open) suffix. Full callout syntax is authoritative in `obsidian-syntax.md`.
+These are authoring recommendations, not built-in behavior: a bare `> [!tip]` is open by default — the fold state comes from the `-` (collapsed) / `+` (open) suffix. Full callout syntax is authoritative in the official `obsidian:obsidian-markdown` skill.
 
 ## Lists, prose, and tables
 

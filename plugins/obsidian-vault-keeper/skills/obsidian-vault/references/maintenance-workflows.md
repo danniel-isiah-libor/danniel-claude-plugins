@@ -38,6 +38,8 @@ Goal: an accurate picture before changing anything.
 ## 2. Capture & filing (process `_inbox` into PARA)
 
 - List `_inbox` (`obsidian_list_files_in_dir` on `_inbox`).
+- When capturing from a **web page**, clip it to clean Markdown first with the
+  official `obsidian:defuddle` skill, then file the result.
 - For each note, read it and decide the PARA bucket by **actionability**:
   `1 Projects` (has an end), `2 Areas` (ongoing standard), `3 Resources`
   (reference), `4 Archive` (inactive). When unsure, ask.

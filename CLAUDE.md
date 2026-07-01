@@ -13,8 +13,8 @@ The marketplace root manifest is `.claude-plugin/marketplace.json`; each plugin 
 | Plugin | Version | Shape | What it is |
 |--------|---------|-------|-----------|
 | `claude-sdlc-team` | 1.9.0 | 11 agents · 14 commands · 26 skills | A gated, end-to-end agentic SDLC pipeline driven by a pure-router orchestrator, with optional Notion Scrum sync |
-| `claude-dream-team` | 0.4.0 | 4 agents · 1 command · 7 skills | A summonable roster of senior expert agents (devops, fullstack, qa, technical-writer) + the `/dream-team-review` loop |
-| `obsidian-vault-keeper` | 0.1.0 | 1 agent · 1 command · 1 skill | An active Obsidian vault steward (PARA filing, MOCs, link/orphan repair) via the Obsidian MCP |
+| `claude-dream-team` | 0.5.0 | 4 agents · 1 command · 6 skills | A summonable roster of senior expert agents (devops, fullstack, qa, technical-writer) + the `/dream-team-review` loop |
+| `obsidian-vault-keeper` | 0.2.0 | 1 agent · 1 command · 1 skill | An active Obsidian vault steward (PARA filing, MOCs, link/orphan repair) via the Obsidian MCP; defers authoring syntax to the required official `obsidian` plugin |
 
 ## Editing / release workflow (there is no "build")
 
@@ -56,7 +56,7 @@ The pipeline is Phases 0–6 (requirements → design → implementation → par
 
 Some knowledge is deliberately single-sourced. Respect these boundaries when editing:
 
-- **Obsidian vault organization & maintenance** → owned by `obsidian-vault-keeper` (the `obsidian-vault` skill). The dream-team's `obsidian-conventions` skill is only a *writer's primer* (Obsidian-flavored Markdown + style guide + link-safe editing) — do not re-add deep vault-org content there.
+- **All Obsidian knowledge** → `obsidian-vault-keeper` is the sole Obsidian owner among these plugins; no other plugin should reference Obsidian (the dream-team's former `obsidian-conventions` skill was removed for this reason). Its `obsidian-vault` skill owns *stewardship* — PARA, MOCs, link hygiene, maintenance workflows, the style guide, and Dataview/Templates — and **defers authoring syntax** (Obsidian Flavored Markdown, `.base`, `.canvas`, the `obsidian` CLI, and web-clipping) to the **required official `obsidian` plugin** (Steph Ango / kepano). Reference those skills by name only — never copy their content: the official plugin auto-updates, so a local copy would silently drift.
 - **Git conventions** (Conventional Commits, Conventional Branch, three-tier model, PR-based promotion + branch cleanup, semver) → the `git-conventions` skill. This governs commits in this repo too.
 
 ## Design docs

@@ -33,7 +33,6 @@ Skills are token-optimized via *progressive disclosure*: only their short descri
 | `qa-testing` | qa-engineer | Unit coverage, Playwright E2E, VAPT/security testing, code review + fix routing |
 | `git-conventions` | dev & devops | Conventional Commits 1.0.0 + Conventional Branch 1.0.0, and semver derivation for tags & releases |
 | `documentation` | technical-writer | Audience-first docs — user guides, how-to/getting-started, feature docs, FAQs, release notes (Diátaxis types, with outlines) |
-| `obsidian-conventions` | technical-writer | A writer's primer for docs that live in an Obsidian vault — Obsidian-flavored Markdown (wikilinks/embeds/callouts/properties), the official Obsidian style guide, and link-safe editing (vault organization and stewardship now live in the `obsidian-vault-keeper` plugin) |
 
 ### Commands
 
@@ -47,7 +46,7 @@ A gated, end-to-end **agentic SDLC pipeline** — requirements → design → im
 
 ### obsidian-vault-keeper
 
-An active Obsidian **vault steward** — the `vault-keeper` agent maintains a vault to best practices via the Obsidian MCP (filesystem fallback): PARA filing, MOC build/refresh, broken-link and orphan fixes, frontmatter normalization, and safe dedupe/rename. Includes the `obsidian-vault` skill and a `/vault-checkup` health-sweep command that reports findings and offers to fix. See [`plugins/obsidian-vault-keeper/README.md`](./plugins/obsidian-vault-keeper/README.md).
+An active Obsidian **vault steward** — the `vault-keeper` agent maintains a vault to best practices via the Obsidian MCP (CLI or filesystem fallback): PARA filing, MOC build/refresh, broken-link and orphan fixes, frontmatter normalization, and safe dedupe/rename. Includes the `obsidian-vault` skill and a `/vault-checkup` health-sweep command that reports findings and offers to fix. It **complements the required official [`obsidian`](https://github.com/kepano/obsidian-skills) plugin** (by Steph Ango/kepano): it owns vault stewardship and defers Obsidian authoring syntax — Markdown, Bases, Canvas, the CLI, and web-clipping — to that plugin's skills rather than duplicating them. See [`plugins/obsidian-vault-keeper/README.md`](./plugins/obsidian-vault-keeper/README.md).
 
 ## Install
 
