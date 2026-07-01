@@ -110,3 +110,20 @@ The `WHERE file.name != this.file.name` clause keeps the MOC from listing itself
 - **Collector's fallacy** — saving everything, processing nothing. Capture *and* link/process.
 - **Plugin dependency for core content** — notes unreadable without a plugin (e.g. all content inside Dataview). Keep the content plain; let plugins augment.
 - **Plugin sprawl** — the top way to make a vault fragile and slow. Add a plugin only when you feel the pain it solves.
+
+## Auditing an existing vault (steward's pass)
+
+When taking over or maintaining an established vault, audit before you
+restructure — the vault's own conventions win over these defaults:
+
+- **Inventory first.** Enumerate every note and folder; note the naming
+  conventions, folder scheme, and whether MOCs and templates already exist.
+- **Measure health, don't assume it.** Count orphans (no in/out links), broken
+  `[[links]]`, notes missing frontmatter, and `_inbox` backlog before proposing
+  changes.
+- **Least-disruptive change.** Prefer adding links and MOCs over moving files;
+  every move risks link breakage (see below and `maintenance-workflows.md`).
+- **Confirm destructive steps.** Merges, deletes, and bulk moves are proposed
+  with counts and confirmed before running.
+
+The operational how-to for each of these lives in `maintenance-workflows.md`.
