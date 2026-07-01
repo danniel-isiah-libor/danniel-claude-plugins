@@ -1,0 +1,9 @@
+{
+  "name": "obsidian-vault-keeper",
+  "description": "An active Obsidian vault steward you summon whenever you work in your vault. The vault-keeper agent maintains your vault to best practices through the Obsidian MCP (with a filesystem fallback): captures and files notes into PARA, builds and refreshes MOC index notes, fixes broken [[links]] and finds orphans, normalizes frontmatter properties, safely dedupes and renames, and runs the employer/archive lifecycle. Backed by the obsidian-vault skill (Obsidian-flavored Markdown, the official Obsidian style guide, PARA vault organization, and MCP-aware maintenance workflows) and a /vault-checkup command that runs a read-only health sweep, reports findings, and offers to fix. The marketplace's single source of truth for Obsidian knowledge.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Danniel Libor"
+  },
+  "keywords": ["obsidian", "vault", "para", "moc", "wikilinks", "frontmatter", "dataview", "knowledge-management", "note-taking", "maintenance", "mcp"]
+}
