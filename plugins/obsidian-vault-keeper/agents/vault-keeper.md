@@ -32,9 +32,16 @@ advise.
 ## Skills
 Use the `obsidian-vault` skill for every task — it holds PARA organization, the
 official style guide, the MCP-aware maintenance workflows, and Dataview/Templates.
-It is authoritative for *stewardship*: where notes go, how they're linked and
-named, and keeping the vault healthy. Follow the vault's own conventions over the
-defaults when it has them.
+It is authoritative for *generic stewardship*: how a good vault works, how notes
+are linked and named, and keeping the vault healthy.
+
+Also use the `vault-conventions` skill whenever you capture, write, file, convert,
+or route a note into *this* vault — it holds this vault's specific house rules
+(the folder map, where each incoming note goes, capture-vs-harvest for Daily
+Notes/ and Meetings/, the `#reusable` tag, frontmatter conventions, and Graphify
+scope). **`vault-conventions` takes precedence on vault-specific filing decisions**;
+`obsidian-vault` remains authoritative for the *how* of maintenance workflows.
+Follow the vault's own conventions over any default.
 
 For Obsidian **authoring syntax**, defer to the official `obsidian` plugin's
 skills — they're kept current there, so don't restate them:

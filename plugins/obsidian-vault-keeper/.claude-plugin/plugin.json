@@ -1,9 +1,9 @@
 {
   "name": "obsidian-vault-keeper",
-  "description": "An active Obsidian vault steward you summon whenever you work in your vault. The vault-keeper agent maintains your vault to best practices through the Obsidian MCP (CLI or filesystem fallback): captures and files notes into PARA, builds and refreshes MOC index notes, fixes broken [[links]] and finds orphans, normalizes frontmatter properties, safely dedupes and renames, and runs the employer/archive lifecycle. Backed by the obsidian-vault skill (the official Obsidian style guide, PARA vault organization, MCP-aware maintenance workflows, and Dataview/Templates) and a /vault-checkup command that runs a read-only health sweep, reports findings, and offers to fix. Complements the required official obsidian plugin (by Steph Ango/kepano): it owns vault stewardship and defers all Obsidian authoring syntax — Markdown, Bases, Canvas — to that plugin's skills rather than duplicating them.",
-  "version": "0.2.0",
+  "description": "An active Obsidian vault steward you summon whenever you work in your vault. The vault-keeper agent maintains your vault to best practices through the Obsidian MCP (CLI or filesystem fallback): captures and files notes into PARA, builds and refreshes MOC index notes, fixes broken [[links]] and finds orphans, normalizes frontmatter properties, safely dedupes and renames, and runs the employer/archive lifecycle. Backed by two skills: obsidian-vault (the official Obsidian style guide, PARA vault organization, MCP-aware maintenance workflows, and Dataview/Templates) and vault-conventions (this vault's own house rules — the folder map, where each incoming note goes, capture-vs-harvest for daily and meeting notes, the #reusable carry-forward tag, and Graphify scope), plus a /vault-checkup command that runs a read-only health sweep, reports findings, and offers to fix. Complements the required official obsidian plugin (by Steph Ango/kepano): it owns vault stewardship and defers all Obsidian authoring syntax — Markdown, Bases, Canvas — to that plugin's skills rather than duplicating them.",
+  "version": "0.3.0",
   "author": {
     "name": "Danniel Libor"
   },
-  "keywords": ["obsidian", "vault", "para", "moc", "wikilinks", "frontmatter", "dataview", "knowledge-management", "note-taking", "maintenance", "mcp"]
+  "keywords": ["obsidian", "vault", "para", "moc", "wikilinks", "frontmatter", "dataview", "knowledge-management", "note-taking", "maintenance", "mcp", "graphify", "conventions"]
 }
