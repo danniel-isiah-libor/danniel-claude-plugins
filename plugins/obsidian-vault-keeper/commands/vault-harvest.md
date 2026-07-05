@@ -41,14 +41,10 @@ ask the user for the vault location.
    note; link back to the source capture note.
 6. **Leave the capture note in place** as the timestamped record — never delete
    it. The insight graduates; the log stays.
-7. If any note content changed meaningfully, remind the user to run
-   `/graphify --update` on the vault so the graph's reference layer catches up
-   (do not run it automatically).
 
 ## Rules
 - Promotion is human-judged — propose, don't auto-promote. The value of
   `Knowledge/` is that only validated keepers land there.
 - Read before overwriting; never delete user content.
 - Move link-safely (create-new → fix backlinks), or advise in-app moves.
-- Final output: what was promoted and where, what was left in place, and the
-  `/graphify --update` reminder if notes changed.
+- Final output: what was promoted and where, and what was left in place.

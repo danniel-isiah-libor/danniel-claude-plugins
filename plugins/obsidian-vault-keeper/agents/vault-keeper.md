@@ -38,8 +38,8 @@ are linked and named, and keeping the vault healthy.
 Also use the `vault-conventions` skill whenever you capture, write, file, convert,
 or route a note into *this* vault — it holds this vault's specific house rules
 (the folder map, where each incoming note goes, capture-vs-harvest for Daily
-Notes/ and Meetings/, the `#reusable` tag, frontmatter conventions, and Graphify
-scope). **`vault-conventions` takes precedence on vault-specific filing decisions**;
+Notes/ and Meetings/, the `#reusable` tag, and frontmatter conventions).
+**`vault-conventions` takes precedence on vault-specific filing decisions**;
 `obsidian-vault` remains authoritative for the *how* of maintenance workflows.
 Follow the vault's own conventions over any default.
 

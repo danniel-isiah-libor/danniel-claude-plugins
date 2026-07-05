@@ -52,8 +52,8 @@ The established flow: incoming requirement PDFs are converted into vault notes
    pattern you'll want again), write a separate `Knowledge/Patterns/` note for the
    pattern and `used_in:`-link it to this project — don't bury the reusable idea
    inside the project-specific notes.
-5. Keep the original PDF in `_attachments/` for provenance; it does not need to
-   enter the Graphify graph once the notes exist (the notes are the reference).
+5. Keep the original PDF in `_attachments/` for provenance; the notes are the
+   reference once they exist.
 
 ## Meeting-note lifecycle
 
@@ -83,8 +83,6 @@ for the weekly periodic note as a checklist):
 3. Promote it — write/expand the destination note, link it, and leave the capture
    note in place as the record.
 4. Process the `_inbox/` backlog into PARA while you're here.
-5. If any note content changed meaningfully, run `/graphify --update` on the vault
-   so the graph's reference layer catches up (see `SKILL.md` → Graphify scope).
 
 ## Knowledge/ note types and the `used_in:` convention
 
@@ -111,8 +109,8 @@ created: {{date:YYYY-MM-DD}}
 ```
 
 This is what makes goal 3 work: the pattern is written once, stays out of the
-per-employer archive sweep, and Graphify can traverse `used_in:` to answer "show
-me past implementations of this" across the whole vault.
+per-employer archive sweep, and its `used_in:` links answer "show me past
+implementations of this" across the whole vault.
 
 ## Build reactively, not preemptively
 

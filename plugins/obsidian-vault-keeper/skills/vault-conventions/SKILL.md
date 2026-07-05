@@ -1,6 +1,6 @@
 ---
 name: vault-conventions
-description: The house rules for THIS specific Obsidian vault (Danniel's) — the filing decisions, folder map, and conventions that say where an incoming note goes and how to write it. Use whenever capturing, writing, filing, converting, or routing any note into the vault (project notes, requirement docs turned into notes, meeting notes, daily notes, reusable patterns) so it lands in the right place with the right frontmatter and tags. Encodes the per-employer PARA nesting under Work/, the vault-level Knowledge/ reference layer, the capture-vs-harvest rule for Daily Notes/ and Meetings/, the #reusable carry-forward tag, and the Graphify .graphifyignore scope. Overrides the generic obsidian-vault skill wherever they differ; defers to obsidian-vault for maintenance workflows and to the official obsidian:* skills for authoring syntax.
+description: The house rules for THIS specific Obsidian vault (Danniel's) — the filing decisions, folder map, and conventions that say where an incoming note goes and how to write it. Use whenever capturing, writing, filing, converting, or routing any note into the vault (project notes, requirement docs turned into notes, meeting notes, daily notes, reusable patterns) so it lands in the right place with the right frontmatter and tags. Encodes the per-employer PARA nesting under Work/, the vault-level Knowledge/ reference layer, the capture-vs-harvest rule for Daily Notes/ and Meetings/, and the #reusable carry-forward tag. Overrides the generic obsidian-vault skill wherever they differ; defers to obsidian-vault for maintenance workflows and to the official obsidian:* skills for authoring syntax.
 ---
 
 # Vault conventions — this vault's house rules
@@ -57,7 +57,7 @@ deliberate and correct — do not flatten it to satisfy textbook PARA.
 2. **Knowledge base** of every project worked on → project notes under each
    employer's `1 Projects/` (and `4 Archive/` when done).
 3. **Reusable reference** for future projects, pulled on demand only →
-   `Knowledge/`, surfaced by the `#reusable` tag and by Graphify queries.
+   `Knowledge/`, surfaced by the `#reusable` tag.
 
 Goals 1 and 2 are met by `Work/`; goal 3 is the reason `Knowledge/` exists.
 
@@ -112,26 +112,6 @@ query: sweep everything tagged `#reusable` in capture streams and promote it.
   of `[[wikilinks]]` to the projects that prove the pattern.
 - **MOC/index notes** are named after their folder and tagged `moc`, embedding a
   Dataview (or Bases) query rather than a hardcoded list.
-
-## Graphify scope
-
-When building the vault's Graphify graph, **exclude the capture streams and
-machinery** — they are noise for reference queries and burn tokens. Ensure a
-`.graphifyignore` at the vault root contains at least:
-
-```
-.obsidian/
-_attachments/
-Daily Notes/
-Meetings/
-Dashboard/Claude Code Status/Status.md
-```
-
-The graph should be built from `Knowledge/` + project notes — the curated,
-reference-grade material. Capture streams stay in the vault for chronological
-lookup; they just don't enter the graph. `Knowledge/` is the folder to merge into
-the cross-project global graph (`graphify global add`) so future project sessions
-can query accumulated patterns on demand.
 
 ## References
 
