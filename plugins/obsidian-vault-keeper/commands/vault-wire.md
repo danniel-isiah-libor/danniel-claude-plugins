@@ -41,13 +41,17 @@ a `repo:` key and a `## Business Rules` section, and a pointer line in the repo'
 
 6. Add the pointer to the repo's `CLAUDE.md` (create a minimal one if absent),
    under a `## Knowledge sources` heading — **ask before writing** since this
-   modifies the user's repo:
+   modifies the user's repo. Scope is the employer folder, not the whole vault:
 
    ```markdown
    ## Knowledge sources
    - Vault project note (business rules / domain context):
      `<vault path to the note>`
-   - Cross-project patterns: `<vault>/Knowledge/`
+   - Employer context root (sibling projects + 3 Resources reference):
+     `<vault>/Work/<Employer>/`
+   - Recent captures: search `<vault>/Daily Notes/` and `<vault>/Meetings/`
+     for entries mentioning this project/employer (meeting notes carry a
+     `company:` key).
    ```
 
    If the heading already exists, update the path rather than duplicating it.
