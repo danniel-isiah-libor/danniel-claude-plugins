@@ -9,7 +9,7 @@ Run `project-adaptation` first; the project's `CLAUDE.md` and conventions outran
 
 ## Engineering standards
 - **SOLID** for module/feature design; **DRY** (extract, don't duplicate); **KISS** (simplest thing that works); **YAGNI** (build only what's needed now).
-- **Clean & maintainable:** small focused units, clear names, match the surrounding style and comment density, write tests alongside code.
+- **Clean & maintainable:** small focused units, clear names, match the surrounding style and comment density. (Test authoring belongs to QA — see `qa-testing`.)
 - **No deprecated code:** never use deprecated/sunset APIs, libraries, or patterns; prefer current, supported equivalents; flag deprecations you encounter.
 - **Security-first:** validate/sanitize all input, parameterized queries, authn/authz on every entry point, no secrets in code, safe defaults. (QA hardens this further — see `qa-testing`.)
 
