@@ -20,7 +20,6 @@ description: >-
   assistant: "I'll bring in the qa-engineer agent to do vulnerability assessment and pen-testing on the auth flow."
   <commentary>VAPT sits within the qa-engineer's testing remit.</commentary>
   </example>
-model: opus
 color: yellow
 ---
 

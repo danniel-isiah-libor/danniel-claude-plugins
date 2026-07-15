@@ -1,7 +1,7 @@
 {
   "name": "obsidian-vault-keeper",
   "description": "An active Obsidian vault steward you summon whenever you work in your vault. The vault-keeper agent maintains your vault to best practices through the Obsidian MCP (CLI or filesystem fallback): captures and files notes into PARA, builds and refreshes MOC index notes, fixes broken [[links]] and finds orphans, normalizes frontmatter properties, safely dedupes and renames, and runs the employer/archive lifecycle. Backed by three skills: obsidian-vault (the official Obsidian style guide, PARA vault organization, MCP-aware maintenance workflows, and Dataview/Templates), vault-conventions (this vault's own house rules — the folder map, where each incoming note goes, and capture-vs-reference for daily and meeting notes with on-demand promotion), and project-context (the employer-scoped repo ↔ vault bridge — coding sessions read the matching project note's business rules before changing domain logic, stay within that employer's folder plus its daily/meeting captures, and write discoveries back), plus two commands: /vault-checkup (read-only health sweep that reports findings and offers to fix) and /vault-wire (scaffold and wire a repo's project note + CLAUDE.md pointer). Complements the required official obsidian plugin (by Steph Ango/kepano): it owns vault stewardship and defers all Obsidian authoring syntax — Markdown, Bases, Canvas — to that plugin's skills rather than duplicating them.",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": {
     "name": "Danniel Libor"
   },

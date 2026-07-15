@@ -1,7 +1,7 @@
 {
   "name": "claude-dream-team",
   "description": "A dream team of senior expert agents you summon on demand — a DevOps engineer (Docker, industry-standard CI/CD with mandatory manual-approval gates and semver git tags/releases for UAT & prod, GCP infra: Cloud Run/SQL/Storage), a fullstack developer (SOLID/DRY/KISS/YAGNI, security-first, robust error handling with DB transactions, idempotency where needed, cross-platform UI/UX, database design), a QA engineer (unit, Playwright E2E, VAPT, and code review), and a technical writer (audience-facing user guides, how-to/feature docs, FAQs, and release notes for clients/stakeholders). Backed by focused skills with progressive-disclosure references — including a shared project-adaptation skill and a git-conventions skill (Conventional Commits/Branch + semver) — and a /dream-team-review command that runs QA → routes fixes to dev/devops → re-verifies. Stack-agnostic agents that compose with each project's CLAUDE.md, skills, and agents.",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": {
     "name": "Danniel Libor"
   },

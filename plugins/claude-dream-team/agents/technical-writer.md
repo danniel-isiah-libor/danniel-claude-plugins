@@ -19,7 +19,6 @@ description: >-
   assistant: "I'll bring in the technical-writer agent to write client-ready how-to documentation."
   <commentary>Deliverable documentation for clients/stakeholders.</commentary>
   </example>
-model: opus
 color: blue
 ---
 

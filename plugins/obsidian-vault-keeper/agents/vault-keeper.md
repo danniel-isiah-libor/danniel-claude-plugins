@@ -21,7 +21,6 @@ description: >-
   assistant: "I'll bring in the vault-keeper agent to scan for broken links and repair the references."
   <commentary>Link hygiene and vault health — vault-keeper territory.</commentary>
   </example>
-model: opus
 color: purple
 ---
 

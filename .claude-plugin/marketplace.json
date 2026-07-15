@@ -8,7 +8,7 @@
     {
       "name": "claude-dream-team",
       "source": "./plugins/claude-dream-team",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "description": "A summonable dream team of senior expert agents — a DevOps engineer (Docker, industry-standard CI/CD with mandatory manual-approval gates and semver tags/releases for UAT & prod, GCP infra), a fullstack developer (SOLID/clean code, security-first, cross-platform UI/UX, database design), a QA engineer (unit, Playwright E2E, VAPT, code review), and a technical writer (user guides, how-to/feature docs, FAQs, release notes for clients/stakeholders). Includes focused skills (project-adaptation, gcp-devops, senior-development, qa-testing, git-conventions, documentation) and a /dream-team-review command that routes QA findings to the dev/devops agents and re-verifies. Stack-agnostic; composes with each project's CLAUDE.md, skills, and agents."
     },
     {
@@ -20,7 +20,7 @@
     {
       "name": "obsidian-vault-keeper",
       "source": "./plugins/obsidian-vault-keeper",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "description": "An active Obsidian vault steward: the vault-keeper agent maintains your vault to best practices through the Obsidian MCP (CLI or filesystem fallback) — captures and files notes into PARA, builds and refreshes MOC index notes, fixes broken [[links]] and finds orphans, normalizes frontmatter, safely dedupes/renames, and runs the archive lifecycle. Includes three skills — obsidian-vault (the official Obsidian style guide, PARA organization, MCP-aware maintenance workflows, Dataview/Templates), vault-conventions (this vault's own house rules: the folder map, where each incoming note goes, and capture-vs-reference for daily and meeting notes with on-demand promotion), and project-context (the employer-scoped repo ↔ vault bridge: coding sessions read the matching project note's business rules before changing domain logic, stay within that employer's folder plus its daily/meeting captures, and write discoveries back) — plus /vault-checkup (read-only health sweep) and /vault-wire (scaffold and wire a repo's project note) commands. Complements the required official obsidian plugin (by Steph Ango/kepano) — it owns vault stewardship and defers Obsidian authoring syntax (Markdown, Bases, Canvas) to that plugin's skills."
     }
   ]
