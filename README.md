@@ -6,7 +6,7 @@ Danniel Libor's collection of [Claude Code](https://claude.com/claude-code) plug
 
 | Plugin | What it is |
 |--------|-----------|
-| [`claude-dream-team`](./plugins/claude-dream-team) | A summonable roster of senior expert agents (DevOps, fullstack, QA, technical writer) + skills + the `/dream-team-review` loop |
+| [`claude-dream-team`](./plugins/claude-dream-team) | A summonable roster of senior expert agents (DevOps, fullstack, QA, security analyst, technical writer) + skills + the `/dream-team-review` loop |
 | [`claude-sdlc-team`](./plugins/claude-sdlc-team) | A gated, end-to-end agentic SDLC pipeline (requirements → … → release → docs) with optional Notion Scrum sync |
 | [`obsidian-vault-keeper`](./plugins/obsidian-vault-keeper) | An active Obsidian vault steward — the `vault-keeper` agent maintains a vault to best practices via the Obsidian MCP (filesystem fallback): PARA filing, MOC build/refresh, broken-link and orphan fixes, frontmatter normalization, safe dedupe/rename — plus the `obsidian-vault` skill and a `/vault-checkup` health-sweep command |
 
@@ -19,6 +19,7 @@ A summonable **dream team** of senior expert agents. They're stack-agnostic and 
 | `devops-engineer` | Senior DevOps Engineer | Docker (cross-platform local + staging/prod), industry-standard CI/CD, and GCP infrastructure (Cloud Run, Cloud SQL, Cloud Storage, Artifact Registry, IAM/Workload Identity, networking) — always optimizing for speed, lightweight footprint, scalability, cost-efficiency, and security |
 | `fullstack-developer` | Senior Fullstack Developer | End-to-end implementation with SOLID/DRY/KISS/YAGNI, security-first & no deprecated APIs, docs-first reuse, cross-platform UI/UX with a uniform design system, and database schema design |
 | `qa-engineer` | Senior QA Engineer | Unit tests (all scenarios), Playwright E2E, VAPT/security testing (XSS, SQLi, …), and comprehensive code review — routing fixes back to the dev/devops agents |
+| `security-analyst` | Senior Application Security Analyst | Read-only CVE triage of dependencies, runtimes, and container/CI base images — native auditors + OSV/NVD, enriched with EPSS and CISA KEV, reachability checks, and a prioritized, source-cited fix list routed to the dev/devops agents |
 | `technical-writer` | Senior Technical Writer | Audience-facing documentation for clients/users/stakeholders — user guides, how-to/getting-started guides, feature docs, FAQs, and release notes |
 
 ### Skills
@@ -27,7 +28,7 @@ Skills are token-optimized via *progressive disclosure*: only their short descri
 
 | Skill | Used by | Covers |
 |-------|---------|--------|
-| `project-adaptation` | **all 4** | Detect the stack, honor `CLAUDE.md`/conventions, reuse the project's skills & agents; adapt to existing repos, not just fresh ones (the project wins on conflict) |
+| `project-adaptation` | **all 5** | Detect the stack, honor `CLAUDE.md`/conventions, reuse the project's skills & agents; adapt to existing repos, not just fresh ones (the project wins on conflict) |
 | `gcp-devops` | devops-engineer | Docker + cross-platform local dev, industry-standard CI/CD (**mandatory manual-approval gate + git tags/releases for UAT & prod**), GCP services — judged on speed/lightweight/scalability/cost/security |
 | `senior-development` | fullstack-developer | SOLID/DRY/KISS/YAGNI, security-first, robust error handling (DB transactions/rollback), idempotency where needed, no deprecated APIs, docs-first reuse, cross-platform UI/UX + design system, database design |
 | `qa-testing` | qa-engineer | Unit coverage, Playwright E2E, VAPT/security testing, code review + fix routing |
@@ -61,7 +62,7 @@ Add the marketplace, then install whichever plugin(s) you want:
 
 > Replace the marketplace source with your Git remote (or a local path while developing, e.g. `/plugin marketplace add /path/to/danniel-claude-plugins`).
 
-Once installed, the dream-team's four agents are available to summon — Claude routes to the right one automatically, or you can call one by name (e.g. "use the devops-engineer agent to …"). The claude-sdlc-team is driven through its slash commands (start with `/sdlc`). The obsidian-vault-keeper's `vault-keeper` agent can be summoned directly, or triggered via `/vault-checkup`.
+Once installed, the dream-team's five agents are available to summon — Claude routes to the right one automatically, or you can call one by name (e.g. "use the devops-engineer agent to …"). The claude-sdlc-team is driven through its slash commands (start with `/sdlc`). The obsidian-vault-keeper's `vault-keeper` agent can be summoned directly, or triggered via `/vault-checkup`.
 
 ## Roadmap
 

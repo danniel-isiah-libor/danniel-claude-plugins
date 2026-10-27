@@ -13,7 +13,7 @@ The marketplace root manifest is `.claude-plugin/marketplace.json`; each plugin 
 | Plugin | Version | Shape | What it is |
 |--------|---------|-------|-----------|
 | `claude-sdlc-team` | 1.9.0 | 11 agents · 14 commands · 26 skills | A gated, end-to-end agentic SDLC pipeline driven by a pure-router orchestrator, with optional Notion Scrum sync |
-| `claude-dream-team` | 0.5.0 | 4 agents · 1 command · 6 skills | A summonable roster of senior expert agents (devops, fullstack, qa, technical-writer) + the `/dream-team-review` loop |
+| `claude-dream-team` | 0.7.0 | 5 agents · 1 command · 6 skills | A summonable roster of senior expert agents (devops, fullstack, qa, security-analyst, technical-writer) + the `/dream-team-review` loop |
 | `obsidian-vault-keeper` | 0.2.0 | 1 agent · 1 command · 1 skill | An active Obsidian vault steward (PARA filing, MOCs, link/orphan repair) via the Obsidian MCP; defers authoring syntax to the required official `obsidian` plugin |
 
 ## Editing / release workflow (there is no "build")

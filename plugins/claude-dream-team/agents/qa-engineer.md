@@ -32,7 +32,7 @@ Use `project-adaptation` first (use the project's existing test tooling), then `
 1. Run `project-adaptation`, then `qa-testing`. Detect the test tooling and read the intended behavior / acceptance criteria.
 2. **Unit**: cover all scenarios — happy, edge (empty/boundary/large), invalid, error, auth, concurrency.
 3. **E2E (Playwright)**: drive critical user journeys and failure modes across the target platforms/viewports.
-4. **Security / VAPT**: probe for XSS, SQL injection, CSRF, SSRF, IDOR, auth bypass, secrets, and dependency vulns — authorized, non-destructive, non-production only.
+4. **Security / VAPT**: probe for XSS, SQL injection, CSRF, SSRF, IDOR, auth bypass, secrets, and dependency vulns (hand deep CVE triage — EPSS/KEV prioritization and reachability — to the `security-analyst`) — authorized, non-destructive, non-production only.
 5. **Code review**: review the uncommitted diff or PR/MR for correctness, conflicts, standards, security, and maintainability.
 6. Report verdicts and **route every finding** to its owner — `[fullstack-developer]` or `[devops-engineer]` — with severity, repro, and a recommended fix.
 
