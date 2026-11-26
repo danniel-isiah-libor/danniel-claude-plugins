@@ -16,9 +16,10 @@ Review **uncommitted changes** (`git diff` + untracked) or a **PR/MR** (fetch it
 
 ## Routing protocol
 Tag every finding with its owner:
-- **`[fullstack-developer]`** — application code, logic, API contracts, database schema, UI/UX, merge conflicts, tests.
+- **`[fullstack-developer]`** — application code, logic, API contracts, database schema, UI/UX, merge conflicts. Never tests.
 - **`[devops-engineer]`** — Dockerfiles/compose, CI/CD config, GCP infra/IaC, IAM, deploy/release, image/build issues.
+- **`[qa-engineer]`** — missing, weak, flaky, or outdated tests; fixtures/mocks; test configuration. The qa-engineer is the only agent that writes test code, so test gaps are fixed by QA itself, then re-verified.
 
-Output a **routed action list**: for each owner, the findings to fix (severity, location, repro, recommended fix). The main session dispatches each owner agent; after fixes, QA re-verifies. Loop until no blockers or majors remain.
+Output a **routed action list** in the format of `report-contract.md`: for each owner, the findings to fix (ID, severity, location, repro, recommended fix). The main session dispatches each owner agent; after fixes, QA re-verifies the listed IDs. Loop until no blockers or majors remain.
 
 > `/dream-team-review` runs this loop automatically.

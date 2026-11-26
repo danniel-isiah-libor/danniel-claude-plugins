@@ -14,7 +14,7 @@ Prioritize the user: clarity, fast feedback, and consistency. Follow the project
 - **Typography:** one type scale and font-family set; consistent weights.
 - **Components:** a shared, documented component library; compose every screen from it so the product looks like one product.
 
-## Accessibility (non-negotiable)
+## Accessibility (non-negotiable — full checklist in `accessibility.md`)
 - Semantic HTML / proper roles; full keyboard navigation with visible focus; sufficient contrast; labels on inputs; respect reduced-motion.
 
 ## UX essentials

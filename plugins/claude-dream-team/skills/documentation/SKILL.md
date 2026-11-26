@@ -20,7 +20,7 @@ Decide who reads this and what they want to do, then write for them:
 - **Explanation** — background and the "why".
 - Plus **FAQ** and **release notes** as needed.
 
-Outlines for each are in `references/doc-types.md`.
+Outlines for each are in `references/doc-types.md`. Release notes are derived from Conventional Commits — recipe in `references/release-notes.md`.
 
 ## Write well
 - Lead with the goal; use numbered steps for procedures and short sentences.
@@ -28,6 +28,9 @@ Outlines for each are in `references/doc-types.md`.
 - Call out prerequisites, warnings, and results ("you should now see …").
 - Be consistent: one term per concept; match the product's actual UI labels; an obvious heading structure with a table of contents for longer docs.
 - Accessible & maintainable: meaningful headings, alt text for images, and a version/date so docs can be kept current.
+
+## Style & quality
+Voice, screenshot rules, the accuracy/link checklist, and the first-time-reader test are in `references/style-and-quality.md` — run the checklist before hand-off.
 
 ## Deliverable
 Hand off clean, self-contained docs in the project's format (Markdown by default), ready for clients/users/stakeholders. Keep internal-only details out of client-facing docs.

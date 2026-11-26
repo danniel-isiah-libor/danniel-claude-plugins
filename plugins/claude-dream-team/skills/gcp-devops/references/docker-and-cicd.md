@@ -17,6 +17,8 @@ The local image and compose stack must build and run on Apple Silicon + Intel ma
 - **Parity:** ship a single `docker-compose.yml` for local that mirrors staging/prod via environment variables — **same image, same compose file, different config, never a different Dockerfile or compose file per OS or per environment**.
 - Verify `docker compose up` works from a clean checkout on each OS (at minimum amd64 + arm64).
 
+> **Applicability:** this is the default for new setups. In an existing repo that already differs, adapt to it and recommend (don't force) convergence.
+
 ## One shared container setup for every environment (local → UAT/staging → prod)
 The single biggest cause of "it works only in this environment" bugs is drift between separate Docker files and per-environment config files. **Eliminate that drift by sharing one container definition across every environment and letting only runtime values differ.** This is the default — do not split it per environment unless the user explicitly asks.
 

@@ -23,6 +23,9 @@ Design to the project's standards (`project-adaptation`); apply these defaults o
 
 ## Migrations
 - Versioned, reviewed, and **reversible**; additive/backward-compatible where possible; never run destructive changes on prod without a backup and a plan.
+- **Zero-downtime = expand → migrate → contract.** (1) *Expand:* add new nullable columns/tables/indexes (create indexes concurrently where supported); (2) deploy code that writes both and reads new-with-fallback; (3) backfill in small batches outside the request path; (4) switch reads; (5) *Contract:* drop the old column/table in a later release once nothing reads it.
+- Never in one step: rename a column/table in use, add `NOT NULL` without a default/backfill, change a column type with a table rewrite on a large table, or hold long locks. Set lock/statement timeouts on migrations.
+- Make migrations **idempotent and re-runnable**; keep schema changes separate from data backfills; test against a production-sized copy when the table is large; rehearse the rollback.
 
 ## Security
 - Least-privilege DB users (app ≠ admin); parameterized queries only; encrypt sensitive columns / at rest; keep credentials in Secret Manager.

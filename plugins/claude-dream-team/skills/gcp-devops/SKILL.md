@@ -5,11 +5,13 @@ description: Expert DevOps for Docker containers, industry-standard CI/CD pipeli
 
 # GCP DevOps
 
-Run `project-adaptation` first. Every decision here is judged against five non-negotiable goals:
+Run `project-adaptation` first. Every decision here is judged against five goals:
 
 > **Speed · Lightweight · Scalability · Cost-efficiency · Security**
 
 If a choice trades one off, say so and pick the balance that fits the project's stage.
+
+**Scope note.** The cloud-specific guidance targets GCP. The container, CI/CD, IaC, and security principles are platform-neutral — on AWS/Azure/on-prem, keep the principles and map the services to their equivalents; if the project already uses another platform, stay on it rather than proposing a migration. The defaults below apply fully to **new** setups; in an **existing** repo, adapt to what's there and recommend changes (with the trade-off) instead of rewriting.
 
 ## Operating principles
 - **Speed:** cache aggressively (layer + dependency cache); parallelize CI jobs; fast cold starts (small images, lazy init).
@@ -19,10 +21,10 @@ If a choice trades one off, say so and pick the balance that fits the project's 
 - **Security:** least-privilege IAM + Workload Identity (no long-lived keys), secrets in Secret Manager, private networking, pinned/scanned images, never secrets in code or images.
 
 ## Containers
-Multi-stage hardened images, **cross-platform local dev (macOS / Windows / Linux)**, and **one shared container setup for every environment** as the default: a single Dockerfile and a single `docker-compose.yml` for local/UAT/prod — **no per-environment Docker, compose, or `.env` files**. The same image is built once and promoted unchanged; configuration differs only via runtime-injected env vars (Secret Manager in the cloud, one gitignored local `.env` copied from a committed `.env.example`). Identical definition everywhere is what kills the "it works only in this environment" problem — only infrastructure and injected values stay isolated per env. See `references/docker-and-cicd.md`.
+Multi-stage hardened images, **cross-platform local dev (macOS / Windows / Linux)**, and — as the default for new setups — **one shared container setup for every environment**: a single Dockerfile and a single `docker-compose.yml` for local/UAT/prod — **no per-environment Docker, compose, or `.env` files**. The same image is built once and promoted unchanged; configuration differs only via runtime-injected env vars (Secret Manager in the cloud, one gitignored local `.env` copied from a committed `.env.example`). Identical definition everywhere is what kills the "it works only in this environment" problem — only infrastructure and injected values stay isolated per env. If an existing project already has per-environment files, don't rewrite them unasked: flag the drift risk and propose a migration path. See `references/docker-and-cicd.md`.
 
 ## CI/CD
 Industry-standard pipeline: CI on every push/PR (build → lint → test → scan). **Every deploy/release to UAT and production requires a human manual-approval gate — never auto-deploy.** UAT and prod deploys cut **git tags + releases** (pre-release for UAT, final release for prod), versioned from Conventional Commits via `git-conventions`. Keep a one-command rollback. Templates and rules in `references/docker-and-cicd.md`.
 
 ## GCP infrastructure
-Service-by-service guidance — Cloud Run, Cloud SQL, Cloud Storage, Artifact Registry, IAM/Workload Identity, networking, Secret Manager, observability — in `references/gcp-services.md`. Prefer Infrastructure-as-Code (Terraform) and isolate environments.
+Service-by-service guidance — Cloud Run, Cloud SQL, Cloud Storage, Artifact Registry, IAM/Workload Identity, networking, Secret Manager, observability — in `references/gcp-services.md`. Prefer Infrastructure-as-Code (Terraform) and isolate environments. Review checklist (plan review, state, drift, secrets, IAM diffs) and the rollback playbook: `references/iac-and-rollback.md`.

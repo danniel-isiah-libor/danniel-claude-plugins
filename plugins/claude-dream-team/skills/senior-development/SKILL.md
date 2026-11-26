@@ -31,4 +31,10 @@ When trading off, these two win: code is judged by whether it's safe and whether
 Cross-platform (web / mobile / desktop) and a uniform design system (palette, icons, tokens) — see `references/ui-ux.md`.
 
 ## Database
-Schema design, normalization, indexing, and optimization — see `references/database-design.md`.
+Schema design, normalization, indexing, optimization, and zero-downtime migrations — see `references/database-design.md`.
+
+## APIs, observability, accessibility, performance
+- API contracts, errors, pagination, idempotency, versioning — `references/api-design.md`.
+- Structured logging, health, metrics, tracing — `references/observability-and-logging.md`.
+- WCAG 2.2 AA requirements for any UI — `references/accessibility.md` (extends the UI/UX baseline).
+- Measure-first performance guidance — `references/performance.md`.

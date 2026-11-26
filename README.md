@@ -12,14 +12,14 @@ Danniel Libor's collection of [Claude Code](https://claude.com/claude-code) plug
 
 ### claude-dream-team
 
-A summonable **dream team** of senior expert agents. They're stack-agnostic and built to **compose with each project** — they read your `CLAUDE.md`, prefer your project-local skills and agents, and follow your conventions. (Their own skills are coming later and will layer on top, never override, your project setup.)
+A summonable **dream team** of senior expert agents. They're stack-agnostic and built to **compose with each project** — they read your `CLAUDE.md`, prefer your project-local skills and agents, and follow your conventions. Their skills layer on top of — never override — your project setup.
 
 | Agent | Role | Owns |
 |-------|------|------|
 | `devops-engineer` | Senior DevOps Engineer | Docker (cross-platform local + staging/prod), industry-standard CI/CD, and GCP infrastructure (Cloud Run, Cloud SQL, Cloud Storage, Artifact Registry, IAM/Workload Identity, networking) — always optimizing for speed, lightweight footprint, scalability, cost-efficiency, and security |
 | `fullstack-developer` | Senior Fullstack Developer | End-to-end implementation with SOLID/DRY/KISS/YAGNI, security-first & no deprecated APIs, docs-first reuse, cross-platform UI/UX with a uniform design system, and database schema design |
-| `qa-engineer` | Senior QA Engineer | Unit tests (all scenarios), Playwright E2E, VAPT/security testing (XSS, SQLi, …), and comprehensive code review — routing fixes back to the dev/devops agents |
-| `security-analyst` | Senior Application Security Analyst | Read-only CVE triage of dependencies, runtimes, and container/CI base images — native auditors + OSV/NVD, enriched with EPSS and CISA KEV, reachability checks, and a prioritized, source-cited fix list routed to the dev/devops agents |
+| `qa-engineer` | Senior QA Engineer | The only agent that writes tests (test files only, never production code): unit tests (all scenarios), Playwright E2E, VAPT/security testing (XSS, SQLi, …), and comprehensive code review — routing fixes to the dev/devops agents and test gaps to itself |
+| `security-analyst` | Senior Application Security Analyst | Read-only (tool allowlist) CVE triage of dependencies, runtimes, and container/CI base images — native auditors + OSV/NVD, enriched with EPSS and CISA KEV, reachability checks, and a prioritized, source-cited fix list routed to the dev/devops agents |
 | `technical-writer` | Senior Technical Writer | Audience-facing documentation for clients/users/stakeholders — user guides, how-to/getting-started guides, feature docs, FAQs, and release notes |
 
 ### Skills
@@ -32,14 +32,17 @@ Skills are token-optimized via *progressive disclosure*: only their short descri
 | `gcp-devops` | devops-engineer | Docker + cross-platform local dev, industry-standard CI/CD (**mandatory manual-approval gate + git tags/releases for UAT & prod**), GCP services — judged on speed/lightweight/scalability/cost/security |
 | `senior-development` | fullstack-developer | SOLID/DRY/KISS/YAGNI, security-first, robust error handling (DB transactions/rollback), idempotency where needed, no deprecated APIs, docs-first reuse, cross-platform UI/UX + design system, database design |
 | `qa-testing` | qa-engineer | Unit coverage, Playwright E2E, VAPT/security testing, code review + fix routing |
-| `git-conventions` | dev & devops | Conventional Commits 1.0.0 + Conventional Branch 1.0.0, and semver derivation for tags & releases |
+| `vulnerability-triage` | security-analyst | Repo CVE scan and single-CVE lookup: native auditors, OSV/NVD, EPSS, CISA KEV, reachability, prioritized report template |
+| `git-conventions` | dev, devops & writer | Conventional Commits 1.0.0 + Conventional Branch 1.0.0, PR/MR and revert/hotfix rules, and semver derivation for tags & releases |
 | `documentation` | technical-writer | Audience-first docs — user guides, how-to/getting-started, feature docs, FAQs, release notes (Diátaxis types, with outlines) |
 
 ### Commands
 
 | Command | Does |
 |---------|------|
-| `/dream-team-review [uncommitted \| <PR/MR> \| <path>]` | Runs the QA review/test pass, routes findings to the `fullstack-developer` / `devops-engineer` agents to fix, and re-verifies — looping until clean (working-tree changes only; never commits/pushes) |
+| `/dream-team-review [uncommitted \| <PR/MR> \| <path>] [--quick \| --security]` | Runs the QA review/test pass (`--quick` = unit + review only; `--security` = security + review + `security-analyst`), routes findings by ID to the `fullstack-developer` / `devops-engineer` / `qa-engineer` to fix, and re-verifies only the listed IDs — looping until clean (working-tree changes only; never commits/pushes) |
+
+**Opt-in proactive QA.** `qa-engineer` runs unprompted only if you ask: add a line like *"After implementing a feature, run the qa-engineer agent on the change"* to your project's `CLAUDE.md`.
 
 ### claude-sdlc-team
 
@@ -67,7 +70,6 @@ Once installed, the dream-team's five agents are available to summon — Claude 
 ## Roadmap
 
 - Expand the `references/` playbooks (more GCP services, framework-specific UI/UX, language-specific security testing).
-- Optional per-project agent memory (with a session-start load hook).
 
 ## License
 

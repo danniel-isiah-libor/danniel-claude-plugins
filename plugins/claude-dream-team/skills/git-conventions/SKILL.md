@@ -21,7 +21,20 @@ Format: `type/short-description` — lowercase, hyphen-separated (kebab-case), n
 
 Prefixes: `feature/`, `bugfix/`, `hotfix/`, `release/`, `chore/` (plus `docs/`, `test/` as needed). Optionally include a ticket id: `feature/PROJ-123-add-login`.
 
+**Match the repo.** If existing branches already use a variant — notably `fix/` instead of `bugfix/` (the `claude-sdlc-team` plugin uses `feature/ fix/ chore/`) — keep using it; consistency within a repo beats the spec's spelling. Never mix both in one repo.
+
 Never commit straight to protected branches (`main`, `development`/`staging`) — branch, then open a PR/MR.
+
+## Pull / merge requests
+- One logical change per PR/MR; the **title is a Conventional Commit** (it becomes the squash/merge subject, which drives the version bump).
+- Description: what and why, how it was tested, risk/rollback notes, linked issue (`Refs #123` / `Closes #123`), screenshots for UI changes, and any breaking-change or migration steps.
+- Keep the branch current with its base (rebase or merge per the project's convention); resolve conflicts yourself, never force-resolve silently.
+- Don't merge with failing required checks; don't merge your own PR where review is required. Delete the source branch after merge if it isn't protected.
+- Never commit, push, or open a PR unless asked; confirm before any push.
+
+## Reverts & hotfixes
+- **Revert:** `git revert <sha>` (never rewrite shared history) with a commit `revert: <original subject>` and a body naming the reverted SHA and the reason. Reverting a merge: `git revert -m 1 <merge-sha>`.
+- **Hotfix:** branch `hotfix/<short-description>` from the production branch (`main`), fix + test, PR into `main`, tag a **patch** release, then merge/cherry-pick the fix back into the integration branch (`development`) so it isn't lost. Hotfixes still pass the manual-approval gate for prod.
 
 ## Semantic versioning (for tags & releases)
 Derive the next version from the commits since the last tag:

@@ -1,6 +1,6 @@
 ---
 name: project-adaptation
-description: Adapt to and collaborate with the project you're working in — detect its tech stack, honor its CLAUDE.md and conventions, and reuse its existing skills and agents before adding anything new. Use at the START of any claude-dream-team task (devops, development, or QA), on existing repos as well as fresh ones. Shared by all three agents.
+description: Adapt to and collaborate with the project you're working in — detect its tech stack, honor its CLAUDE.md and conventions, and reuse its existing skills and agents before adding anything new. Use at the START of any claude-dream-team task (devops, development, QA, security triage, or documentation), on existing repos as well as fresh ones. Shared by all five agents.
 ---
 
 # Project Adaptation
@@ -27,4 +27,4 @@ Read manifests and lockfiles to learn the truth of the project — don't assume:
 - **Fresh repo:** apply the dream-team's opinionated defaults (see each domain skill).
 
 ## Team handoffs
-claude-dream-team agents collaborate through the main session. When the qa-engineer routes a finding to `[fullstack-developer]` or `[devops-engineer]`, that agent implements the fix within its own boundaries, then QA re-verifies. The routing protocol lives in `qa-testing` → `references/code-review.md`; the `/dream-team-review` command automates the loop.
+claude-dream-team agents collaborate through the main session. When the qa-engineer routes a finding to `[fullstack-developer]`, `[devops-engineer]`, or `[qa-engineer]` (test gaps), that agent implements the fix within its own boundaries, then QA re-verifies. The `security-analyst` is read-only and routes CVE fixes the same way; the `technical-writer` documents what was built and flags bugs instead of fixing them. The routing protocol lives in `qa-testing` → `references/code-review.md`; the `/dream-team-review` command automates the loop.

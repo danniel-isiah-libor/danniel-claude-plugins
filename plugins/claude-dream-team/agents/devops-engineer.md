@@ -5,7 +5,8 @@ description: >-
   debugging, or hardening pipelines (GitHub Actions, Cloud Build, GitLab CI) and
   GCP infrastructure (Cloud Run, GKE, Artifact Registry, IAM, networking,
   Terraform/IaC), plus deployments and observability. A senior DevOps engineer
-  you summon on demand.
+  you summon on demand. Not for application feature code (fullstack-developer)
+  or writing tests (qa-engineer).
 
   <example>
   Context: A GitHub Actions deploy to Cloud Run keeps failing.
